@@ -8,6 +8,7 @@ USAGE: %s [-h|--help] [-t|--test] [-d|--day N]
 local finished_days = {
   [1] = true,
   [2] = true,
+  [3] = true,
 }
 
 local start = os.clock()
