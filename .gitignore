@@ -1,4 +1,5 @@
 data/
+.env
 /lua_modules
 /.luarocks
 bin/lua
