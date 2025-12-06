@@ -5,27 +5,12 @@ Find numbers within ranges that are just a little *too* silly.
 ]]
 
 local Day = require("day")
+local Range = require("range")
 local day2 = setmetatable({}, Day)
-
----@class day2.Range
----@field start number The start of the range
----@field finish number The end of the range
-local Range = {}
-
-function Range:__tostring()
-  return string.format("%d - %d", self.start, self.finish)
-end
-
---- Instantiate a new Range
-function Range.new(start, finish)
-  return setmetatable({ start = tonumber(start), finish = tonumber(finish) }, Range)
-end
-
-day2.Range = Range
 
 --- Parse out the input file into ranges
 ---@param contents string The string puzzle input
----@return day2.Range[] A list of integer ranges
+---@return Range[] A list of integer ranges
 function day2:parse(contents)
   local result = {}
   for range in contents:gmatch("[^,]+") do
@@ -94,7 +79,7 @@ end
 
 --- Part 1: Sum up all the numbers in the given ranges that are made up of
 --- a smaller number made twice
----@param data day2.Range[]
+---@param data Range[]
 ---@return integer
 function day2:part1(data)
   local total = 0
@@ -211,7 +196,7 @@ local function iter_repeated2(start, finish)
 end
 
 --- Part 2: Sum up all unique numbers made up of 2 or more repeating sub-numbers
----@param data day2.Range[]
+---@param data Range[]
 ---@return integer
 function day2:part2(data)
   local total = 0

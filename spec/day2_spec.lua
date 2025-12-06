@@ -1,4 +1,5 @@
 local day2 = require('days.day2')
+local Range = require("range")
 
 describe("Day 2", function()
   describe("parse", function()
@@ -34,8 +35,8 @@ describe("Day 2", function()
 
     it("Dedupes the numbers", function()
       local ranges = {
-        day2.Range.new(1000, 1090),
-        day2.Range.new(1000, 1090),
+        Range.new(1000, 1090),
+        Range.new(1000, 1090),
       }
       local result = day2:part2(ranges)
       assert.is.equal(result, 1010)
